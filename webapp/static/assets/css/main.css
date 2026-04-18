@@ -488,7 +488,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), transparent 10%) 100%), url("../img/footer-bg.jpg") center center no-repeat;
+  background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), transparent 10%) 100%), /* url("../img/footer-bg.jpg") center center no-repeat;
   background-size: cover;
   font-size: 14px;
   padding-bottom: 50px;
@@ -686,7 +686,7 @@ h6 {
 --------------------------------------------------------------*/
 .page-title {
   color: var(--default-color);
-  background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), transparent 10%) 100%), url("../img/page-title-bg.jpg") top center no-repeat;
+  background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), transparent 10%) 100%), /* url("../img/page-title-bg.jpg") top center no-repeat;
   background-size: cover;
   padding: 160px 0 80px 0;
   text-align: center;
@@ -785,7 +785,7 @@ section,
   padding: 120px 0 60px 0;
   display: flex;
   align-items: center;
-  background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), transparent 10%) 100%), url("../img/hero-bg.jpg") center center no-repeat;
+  background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), transparent 10%) 100%), /* url("../img/hero-bg.jpg") center center no-repeat;
   background-size: cover;
 }
 
@@ -941,7 +941,7 @@ section,
 .stats {
   position: relative;
   padding: 80px 0;
-  background: url("../img/stats-bg.png") center center no-repeat;
+  background: /* url("../img/stats-bg.png") center center no-repeat;
   background-size: cover;
 }
 
@@ -1459,8 +1459,8 @@ section,
   bottom: -1px;
   height: 100%;
   background-color: var(--surface-color);
-  -webkit-mask: url("../img/team-shape.svg") no-repeat center bottom;
-  mask: url("../img/team-shape.svg") no-repeat center bottom;
+  -webkit-mask: /* url("../img/team-shape.svg") no-repeat center bottom;
+  mask: /* url("../img/team-shape.svg") no-repeat center bottom;
   -webkit-mask-size: contain;
   mask-size: contain;
   z-index: 1;
