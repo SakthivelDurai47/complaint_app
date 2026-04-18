@@ -176,6 +176,7 @@ def newuser():
         cursor = conn.cursor()
         cursor.execute("SELECT * from regtb where username=?", (username,))
         data = cursor.fetchone()
+        conn.close()
         if data is None:
             conn = get_db_connection()
             cursor = conn.cursor()
@@ -205,6 +206,7 @@ def userlogin():
         cursor = conn.cursor()
         cursor.execute("SELECT * from regtb where username=? and Password=?", (username, password))
         data = cursor.fetchone()
+        conn.close()
         if data is None:
 
             flash('Username or Password is wrong')
@@ -215,6 +217,7 @@ def userlogin():
             cur = conn.cursor()
             cur.execute("SELECT * FROM regtb where username=?", (session['uname'],))
             data1 = cur.fetchall()
+            conn.close()
             return render_template('UserHome.html', data=data1)
 
 
