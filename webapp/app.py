@@ -16,12 +16,11 @@ def get_db_connection():
 
 # Initialize database
 try:
-    with app.app_context():
-        conn = get_db_connection()
-        with open('init_db.sql', 'r') as f:
-            conn.executescript(f.read())
-        conn.commit()
-        conn.close()
+    conn = get_db_connection()
+    with open('init_db.sql', 'r') as f:
+        conn.executescript(f.read())
+    conn.commit()
+    conn.close()
 except Exception as e:
     print(f"DB init failed: {e}")
 
