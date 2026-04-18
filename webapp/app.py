@@ -15,14 +15,11 @@ def get_db_connection():
 
 
 # Initialize database
-try:
-    conn = get_db_connection()
-    with open('init_db.sql', 'r') as f:
-        conn.executescript(f.read())
-    conn.commit()
-    conn.close()
-except Exception as e:
-    print(f"DB init failed: {e}")
+conn = get_db_connection()
+with open(os.path.join(os.path.dirname(__file__), 'init_db.sql'), 'r') as f:
+    conn.executescript(f.read())
+conn.commit()
+conn.close()
 
 
 @app.route('/')
