@@ -61,6 +61,7 @@ def adminlogin():
             cur = conn.cursor()
             cur.execute("SELECT * FROM officertb ")
             data = cur.fetchall()
+            conn.close()
 
             return render_template('AdminHome.html', data=data)
 
@@ -85,6 +86,7 @@ def AUserInfo():
     cur = conn.cursor()
     cur.execute("SELECT * FROM regtb ")
     data = cur.fetchall()
+    conn.close()
     return render_template('AUserInfo.html', data=data)
 
 
@@ -103,6 +105,7 @@ def newofficer():
         cursor = conn.cursor()
         cursor.execute("SELECT * from officertb where username=?", (username,))
         data = cursor.fetchone()
+        conn.close()
         if data is None:
             conn = get_db_connection()
             cursor = conn.cursor()
@@ -130,6 +133,7 @@ def officerlogin():
         cursor = conn.cursor()
         cursor.execute("SELECT * from officertb where username=? and Password=?", (username, password))
         data = cursor.fetchone()
+        conn.close()
         if data is None:
 
             flash('Username or Password is wrong')
@@ -140,6 +144,7 @@ def officerlogin():
             cur = conn.cursor()
             cur.execute("SELECT * FROM officertb where username=?", (session['oname'],))
             data1 = cur.fetchall()
+            conn.close()
             return render_template('OfficerHome.html', data=data1)
 
 
@@ -149,6 +154,7 @@ def OfficerHome():
     cur = conn.cursor()
     cur.execute("SELECT * FROM officertb where username=?", (session['oname'],))
     data1 = cur.fetchall()
+    conn.close()
     return render_template('OfficerHome.html', data=data1)
 
 
@@ -158,6 +164,7 @@ def OUserInfo():
     cur = conn.cursor()
     cur.execute("SELECT * FROM regtb")
     data = cur.fetchall()
+    conn.close()
 
     return render_template('OUserInfo.html', data=data)
 
@@ -265,6 +272,7 @@ def UComplaintInfo():
     cur = conn.cursor()
     cur.execute("SELECT * FROM complainttb WHERE UserName=?", (session['uname'],))
     data = cur.fetchall()
+    conn.close()
     return render_template('UComplaintInfo.html', data=data)
 
 
@@ -274,6 +282,7 @@ def OComplaintInfo():
     cur = conn.cursor()
     cur.execute("SELECT * FROM complainttb WHERE OfficerName=?", (session['oname'],))
     data = cur.fetchall()
+    conn.close()
     return render_template('OComplaintInfo.html', data=data)
 
 
@@ -283,6 +292,7 @@ def AComplaintInfo():
     cur = conn.cursor()
     cur.execute("SELECT * FROM complainttb")
     data = cur.fetchall()
+    conn.close()
     return render_template('AComplaintInfo.html', data=data)
 
 
