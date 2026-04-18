@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, s
 import sqlite3
 import base64, os, sys
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'your-secret-key-change-this')
 
 DB_FILE = os.environ.get('DB_FILE', '/tmp/1publiccomplaintdb.db')
@@ -15,12 +15,12 @@ def get_db_connection():
 
 
 # Initialize database
-with app.app_context():
-    conn = get_db_connection()
-    with open('init_db.sql', 'r') as f:
-        conn.executescript(f.read())
-    conn.commit()
-    conn.close()
+# with app.app_context():
+#     conn = get_db_connection()
+#     with open('init_db.sql', 'r') as f:
+#         conn.executescript(f.read())
+#     conn.commit()
+#     conn.close()
 
 
 @app.route('/')
